@@ -115,3 +115,20 @@ export interface AdminInsights {
   recentExpenses: AdminExpense[];
   recentUsers: RecentUser[];
 }
+
+export type SortField = "date" | "amount";
+export type SortOrder = "asc" | "desc";
+
+export interface ExpenseQuery {
+  search?: string | undefined;
+  category?: string | undefined;
+  paymentMethod?: PaymentMethod | undefined;
+  dateFrom?: string | undefined;
+  dateTo?: string | undefined;
+  minAmount?: string | undefined;
+  maxAmount?: string | undefined;
+  sortBy: SortField;
+  order: SortOrder;
+  page: number;
+  limit: number;
+}
