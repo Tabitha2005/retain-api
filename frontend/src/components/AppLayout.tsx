@@ -147,7 +147,7 @@ export default function AppLayout() {
         <SidebarContent onNavigate={() => setOpen(false)} />
       </Drawer>
 
-      <Box component="main" sx={{ ml: { md: `${WIDTH}px` }, pt: { xs: 8, md: 0 } }}>
+      <Box component="main" sx={{ ml: { md: `${WIDTH}px` }, pt: { xs: 8, md: 0 }, minWidth: 0 }}>
         <Box sx={{ maxWidth: 1120, mx: "auto", px: { xs: 2, sm: 3, md: 5 }, py: { xs: 3, md: 5 } }}>
           <Outlet />
         </Box>
