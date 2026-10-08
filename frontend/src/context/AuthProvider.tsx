@@ -44,10 +44,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     [finishAuth]
   );
 
-  const signUp = useCallback(
-    async (name: string, email: string, password: string) => finishAuth(await register(name, email, password)),
-    [finishAuth]
-  );
+  // Creating an account does not sign the user in. They continue to the sign in page.
+  const signUp = useCallback(async (name: string, email: string, password: string) => {
+    await register(name, email, password);
+  }, []);
 
   const signOut = useCallback(() => {
     localStorage.removeItem(TOKEN_KEY);
