@@ -100,7 +100,7 @@ export default function AdminCategories() {
                   )}
                 </Box>
                 {c.isDefault ? (
-                  <Chip label="Default" size="small" sx={{ bgcolor: "#EEF1FD", color: "primary.main" }} />
+                  <Chip label="Default" size="small" sx={{ bgcolor: "#E4EEEC", color: "primary.main" }} />
                 ) : (
                   <Box sx={{ whiteSpace: "nowrap" }}>
                     <IconButton aria-label={`Rename ${c.name}`} size="small" onClick={() => openEdit(c)}>

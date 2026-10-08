@@ -73,7 +73,7 @@ export default function ExpenseDetail() {
       <Card sx={{ p: { xs: 3, md: 5 } }}>
         <Box sx={{ display: "flex", justifyContent: "space-between", gap: 3, flexWrap: "wrap", alignItems: "flex-start" }}>
           <Box sx={{ minWidth: 0 }}>
-            <Chip label={data.category.name} size="small" sx={{ bgcolor: "#EEF1FD", color: "primary.main", mb: 1.5 }} />
+            <Chip label={data.category.name} size="small" sx={{ bgcolor: "#E4EEEC", color: "primary.main", mb: 1.5 }} />
             <Typography variant="h2" component="h1">
               {data.title}
             </Typography>

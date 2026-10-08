@@ -26,10 +26,10 @@ interface Props {
   onDelete: (expense: Expense) => void;
 }
 
-const headCell = { color: "text.secondary", fontWeight: 700, bgcolor: "#FAFBFD", borderColor: "divider", py: 1.5 };
+const headCell = { color: "text.secondary", fontWeight: 700, bgcolor: "#F8F9F7", borderColor: "divider", py: 1.5 };
 
 function CategoryChip({ name }: { name: string }) {
-  return <Chip label={name} size="small" sx={{ bgcolor: "#EEF1FD", color: "primary.main" }} />;
+  return <Chip label={name} size="small" sx={{ bgcolor: "#E4EEEC", color: "primary.main" }} />;
 }
 
 export default function ExpenseList({ items, onEdit, onDelete }: Props) {
