@@ -22,7 +22,7 @@ export default function ExpenseFilters({ categories }: { categories: Category[] 
 
   return (
     <Card sx={{ p: { xs: 2, md: 2.5 }, display: "grid", gap: 2 }}>
-      <Box sx={{ display: "grid", gap: 2, gridTemplateColumns: { xs: "1fr", md: "2fr 1fr" } }}>
+      <Box sx={{ display: "grid", gap: 2, gridTemplateColumns: { xs: "minmax(0, 1fr)", md: "minmax(0, 2fr) minmax(0, 1fr)" } }}>
         <TextField
           placeholder="Search by title or notes"
           value={filters.search}
@@ -58,7 +58,7 @@ export default function ExpenseFilters({ categories }: { categories: Category[] 
         sx={{
           display: "grid",
           gap: 2,
-          gridTemplateColumns: { xs: "1fr 1fr", md: "repeat(3, 1fr)", lg: "repeat(6, 1fr)" },
+          gridTemplateColumns: { xs: "repeat(2, minmax(0, 1fr))", md: "repeat(3, minmax(0, 1fr))", lg: "repeat(6, minmax(0, 1fr))" },
         }}
       >
         <TextField
