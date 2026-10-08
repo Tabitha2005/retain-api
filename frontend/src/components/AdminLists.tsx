@@ -62,7 +62,7 @@ export function RecentUsers({ items }: { items: RecentUser[] }) {
             <Chip
               label={u.role === "admin" ? "Admin" : "User"}
               size="small"
-              sx={{ bgcolor: u.role === "admin" ? "#EEF1FD" : "#EEF0F4", color: u.role === "admin" ? "primary.main" : "text.secondary" }}
+              sx={{ bgcolor: u.role === "admin" ? "#E4EEEC" : "#ECEEEA", color: u.role === "admin" ? "primary.main" : "text.secondary" }}
             />
           </Box>
         ))

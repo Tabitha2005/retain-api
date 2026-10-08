@@ -20,7 +20,7 @@ export default function AuthLayout({ title, subtitle, children, footer }: Props)
           display: { xs: "none", md: "flex" },
           flexDirection: "column",
           justifyContent: "space-between",
-          bgcolor: brand.cobaltDark,
+          bgcolor: brand.primaryDark,
           color: "#FFFFFF",
           p: 6,
         }}

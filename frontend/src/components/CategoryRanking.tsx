@@ -24,7 +24,7 @@ export default function CategoryRanking({ title, items }: Props) {
                   width: 28,
                   height: 28,
                   borderRadius: 2,
-                  bgcolor: "#EEF1FD",
+                  bgcolor: "#E4EEEC",
                   color: "primary.main",
                   display: "grid",
                   placeItems: "center",

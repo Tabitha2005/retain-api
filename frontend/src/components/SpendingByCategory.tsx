@@ -40,7 +40,7 @@ export default function SpendingByCategory({
                     </Typography>
                   </Typography>
                 </Box>
-                <Box sx={{ height: 8, borderRadius: 4, bgcolor: "#E9ECF5", overflow: "hidden" }}>
+                <Box sx={{ height: 8, borderRadius: 4, bgcolor: "#E3E8E5", overflow: "hidden" }}>
                   <Box sx={{ height: "100%", width: `${Math.max(share * 100, 2)}%`, bgcolor: "primary.main", borderRadius: 4 }} />
                 </Box>
               </Box>

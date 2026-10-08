@@ -16,7 +16,7 @@ export default function EmptyState({ title, message, action }: Props) {
           width: 56,
           height: 56,
           borderRadius: "50%",
-          bgcolor: "#EEF1FD",
+          bgcolor: "#E4EEEC",
           color: "primary.main",
           display: "grid",
           placeItems: "center",

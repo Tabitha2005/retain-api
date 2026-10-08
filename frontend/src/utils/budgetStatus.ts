@@ -8,8 +8,8 @@ export interface StatusMeta {
 }
 
 export const STATUS_META: Record<BudgetStatus, StatusMeta> = {
-  none: { label: "No budget set", color: "#586174", background: "#EEF0F4" },
-  within: { label: "Within budget", color: brand.positive, background: "#E5F5EE" },
-  approaching: { label: "Approaching budget", color: brand.caution, background: "#FBF0DC" },
-  over: { label: "Over budget", color: brand.danger, background: "#FBE6E6" },
+  none: { label: "No budget set", color: "#566462", background: "#ECEEEA" },
+  within: { label: "Within budget", color: brand.positive, background: "#E3F0E9" },
+  approaching: { label: "Approaching budget", color: brand.caution, background: "#F6EBD6" },
+  over: { label: "Over budget", color: brand.danger, background: "#F5E2E0" },
 };

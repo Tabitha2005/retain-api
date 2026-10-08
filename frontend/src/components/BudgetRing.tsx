@@ -10,7 +10,7 @@ interface Props {
   children?: ReactNode;
 }
 
-export default function BudgetRing({ value, size = 160, stroke = 14, color = "#2845D6", track = "#E3E7EF", children }: Props) {
+export default function BudgetRing({ value, size = 160, stroke = 14, color = "#245B63", track = "#E1E4DE", children }: Props) {
   const radius = (size - stroke) / 2;
   const circumference = 2 * Math.PI * radius;
   const pct = Math.min(Math.max(value, 0), 1);
