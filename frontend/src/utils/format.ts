@@ -29,3 +29,9 @@ export function monthLabel(month: string): string {
     timeZone: "UTC",
   });
 }
+
+export function shiftMonth(month: string, delta: number): string {
+  const [year, m] = month.split("-").map(Number) as [number, number];
+  const d = new Date(Date.UTC(year, m - 1 + delta, 1));
+  return `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, "0")}`;
+}
