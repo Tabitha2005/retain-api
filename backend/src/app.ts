@@ -6,6 +6,7 @@ import categoryRoutes from "./routes/categoryRoutes";
 import expenseRoutes from "./routes/expenseRoutes";
 import budgetRoutes from "./routes/budgetRoutes";
 import dashboardRoutes from "./routes/dashboardRoutes";
+import adminRoutes from "./routes/adminRoutes";
 
 const app = express();
 app.use(cors({ origin: process.env.CLIENT_URL || "http://localhost:5173" }));
@@ -19,6 +20,7 @@ app.use("/api/categories", categoryRoutes);
 app.use("/api/expenses", expenseRoutes);
 app.use("/api/budgets", budgetRoutes);
 app.use("/api/dashboard", dashboardRoutes);
+app.use("/api/admin", adminRoutes);
 
 app.use(errorHandler);
 
