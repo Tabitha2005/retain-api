@@ -36,7 +36,7 @@ interface NavItem {
 }
 
 const userNav: NavItem[] = [
-  { to: "/", label: "Dashboard", icon: <DashboardOutlined />, end: true },
+  { to: "/dashboard", label: "Dashboard", icon: <DashboardOutlined /> },
   { to: "/expenses", label: "Expenses", icon: <ReceiptLongOutlined /> },
   { to: "/budget", label: "Budget", icon: <SavingsOutlined /> },
 ];

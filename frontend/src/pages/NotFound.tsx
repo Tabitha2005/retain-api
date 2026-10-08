@@ -10,7 +10,7 @@ export default function NotFound() {
           The page you opened doesn't exist or has moved.
         </Typography>
         <Button component={RouterLink} to="/" variant="contained" size="large">
-          Back to dashboard
+          Back to home
         </Button>
       </Box>
     </Box>
