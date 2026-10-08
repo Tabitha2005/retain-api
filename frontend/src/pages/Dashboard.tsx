@@ -5,7 +5,7 @@ import PageHeader from "../components/PageHeader";
 import MonthPicker from "../components/MonthPicker";
 import BudgetCard from "../components/BudgetCard";
 import StatCard from "../components/StatCard";
-import SpendingByCategory from "../components/SpendingByCategory";
+import CategoryChart from "../components/CategoryChart";
 import RecentExpenses from "../components/RecentExpenses";
 import ErrorMessage from "../components/ErrorMessage";
 import Loader from "../components/Loader";
@@ -67,7 +67,7 @@ export default function Dashboard() {
             </Box>
 
             <Box sx={{ display: "grid", gap: 3, gridTemplateColumns: { xs: "minmax(0, 1fr)", lg: "repeat(2, minmax(0, 1fr))" } }}>
-              <SpendingByCategory items={data.byCategory} total={data.totalSpent} />
+              <CategoryChart items={data.byCategory} total={data.totalSpent} />
               <RecentExpenses items={data.recentExpenses} />
             </Box>
           </Box>

@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import PageHeader from "../components/PageHeader";
 import StatCard from "../components/StatCard";
-import SpendingByCategory from "../components/SpendingByCategory";
+import CategoryChart from "../components/CategoryChart";
 import CategoryRanking from "../components/CategoryRanking";
 import { AdminRecentExpenses, RecentUsers } from "../components/AdminLists";
 import ErrorMessage from "../components/ErrorMessage";
@@ -29,7 +29,7 @@ export default function AdminDashboard() {
               <StatCard label="This month" value={String(data.expensesThisMonth)} caption="Expenses dated this month" />
             </Box>
 
-            <SpendingByCategory
+            <CategoryChart
               items={data.spendingPerCategory.filter((c) => c.total > 0)}
               total={data.totalExpenseValue}
               title="Total spending per category"
