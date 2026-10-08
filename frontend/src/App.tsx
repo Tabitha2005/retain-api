@@ -1,11 +1,13 @@
 import { Route, Routes } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AdminRoute from "./components/AdminRoute";
+import UserRoute from "./components/UserRoute";
 import AppLayout from "./components/AppLayout";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import Expenses from "./pages/Expenses";
+import ExpenseDetail from "./pages/ExpenseDetail";
 import Budget from "./pages/Budget";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminCategories from "./pages/AdminCategories";
@@ -19,9 +21,12 @@ export default function App() {
 
       <Route element={<ProtectedRoute />}>
         <Route element={<AppLayout />}>
-          <Route index element={<Dashboard />} />
-          <Route path="expenses" element={<Expenses />} />
-          <Route path="budget" element={<Budget />} />
+          <Route element={<UserRoute />}>
+            <Route index element={<Dashboard />} />
+            <Route path="expenses" element={<Expenses />} />
+            <Route path="expenses/:id" element={<ExpenseDetail />} />
+            <Route path="budget" element={<Budget />} />
+          </Route>
 
           <Route element={<AdminRoute />}>
             <Route path="admin" element={<AdminDashboard />} />

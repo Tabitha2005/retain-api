@@ -86,15 +86,15 @@ function SidebarContent({ onNavigate }: { onNavigate: () => void }) {
         <Logo />
       </Box>
 
-      <NavGroup items={userNav} onNavigate={onNavigate} />
-
-      {isAdmin && (
+      {isAdmin ? (
         <>
-          <Typography variant="caption" color="text.secondary" sx={{ fontWeight: 700, px: 1.5, mt: 3, mb: 1 }}>
-            Admin
+          <Typography variant="caption" color="text.secondary" sx={{ fontWeight: 700, px: 1.5, mb: 1 }}>
+            Admin console
           </Typography>
           <NavGroup items={adminNav} onNavigate={onNavigate} />
         </>
+      ) : (
+        <NavGroup items={userNav} onNavigate={onNavigate} />
       )}
 
       <Box sx={{ flexGrow: 1 }} />
@@ -129,7 +129,10 @@ export default function AppLayout() {
       {!isDesktop && (
         <AppBar position="fixed" color="inherit" elevation={0} sx={{ borderBottom: 1, borderColor: "divider" }}>
           <Toolbar>
-            <IconButton edge="start" aria-label="Open menu" onClick={() => setOpen(true)} sx={{ mr: 1 }}>
+            <IconButton edge="start" aria-label="Open menu" onClick={(e) => {
+                e.currentTarget.blur();
+                setOpen(true);
+              }} sx={{ mr: 1 }}>
               <MenuIcon />
             </IconButton>
             <Logo />
