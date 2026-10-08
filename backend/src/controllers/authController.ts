@@ -5,12 +5,19 @@ import { User } from "../models/User";
 import { AuthRequest } from "../middleware/auth";
 
 function signToken(id: string, role: string): string {
-  return jwt.sign({ id, role }, process.env.JWT_SECRET as string, { expiresIn: "7d" });
+  return jwt.sign({ id, role }, process.env.JWT_SECRET as string, { expiresIn: "1d" });
 }
 
 export async function register(req: AuthRequest, res: Response): Promise<void> {
-  const { name, email, password } = req.body as Record<string, string | undefined>;
-  if (!name || !email || !password || password.length < 6) {
+  const { name, email, password } = req.body as Record<string, unknown>;
+  if (
+    typeof name !== "string" ||
+    typeof email !== "string" ||
+    typeof password !== "string" ||
+    !name.trim() ||
+    !/^\S+@\S+\.\S+$/.test(email) ||
+    password.length < 6
+  ) {
     res.status(400).json({ message: "Name, email and a password of 6+ characters are required" });
     return;
   }
@@ -27,8 +34,8 @@ export async function register(req: AuthRequest, res: Response): Promise<void> {
 }
 
 export async function login(req: AuthRequest, res: Response): Promise<void> {
-  const { email, password } = req.body as Record<string, string | undefined>;
-  if (!email || !password) {
+  const { email, password } = req.body as Record<string, unknown>;
+  if (typeof email !== "string" || typeof password !== "string" || !email || !password) {
     res.status(400).json({ message: "Email and password are required" });
     return;
   }
