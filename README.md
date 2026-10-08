@@ -291,4 +291,5 @@ Another user's expense is returned as 404, so its existence is not revealed.
 
 ## Author
 
+Aluel Tabitha Kuir
 
