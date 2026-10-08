@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
-import { listCategories } from "../api/categories";
+import { getInsights } from "../api/admin";
 import { getErrorMessage } from "../api/client";
-import type { Category } from "../types";
+import type { AdminInsights } from "../types";
 
-export function useCategories() {
-  const [categories, setCategories] = useState<Category[]>([]);
+export function useAdminInsights() {
+  const [data, setData] = useState<AdminInsights | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [nonce, setNonce] = useState(0);
@@ -13,9 +13,9 @@ export function useCategories() {
     let active = true;
     setLoading(true);
     setError("");
-    listCategories()
+    getInsights()
       .then((result) => {
-        if (active) setCategories(result);
+        if (active) setData(result);
       })
       .catch((err: unknown) => {
         if (active) setError(getErrorMessage(err));
@@ -30,5 +30,5 @@ export function useCategories() {
 
   const reload = useCallback(() => setNonce((n) => n + 1), []);
 
-  return { categories, loading, error, reload };
+  return { data, loading, error, reload };
 }
