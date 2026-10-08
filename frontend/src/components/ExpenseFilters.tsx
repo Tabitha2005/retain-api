@@ -1,4 +1,6 @@
-import { Box, Button, Card, InputAdornment, MenuItem, TextField } from "@mui/material";
+import { useState } from "react";
+import { Box, Button, Card, Collapse, InputAdornment, MenuItem, TextField, useMediaQuery, useTheme } from "@mui/material";
+import TuneOutlined from "@mui/icons-material/TuneOutlined";
 import SearchOutlined from "@mui/icons-material/SearchOutlined";
 import FilterAltOffOutlined from "@mui/icons-material/FilterAltOffOutlined";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
@@ -14,6 +16,10 @@ export default function ExpenseFilters({ categories }: { categories: Category[] 
   const dispatch = useAppDispatch();
   const filters = useAppSelector(selectFilters);
   const activeCount = useAppSelector(selectActiveFilterCount);
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const [open, setOpen] = useState(false);
+  const hiddenCount = activeCount - (filters.search.trim() ? 1 : 0);
 
   function handleSort(value: string) {
     const [sortBy, order] = value.split(":") as [SortField, SortOrder];
@@ -54,6 +60,17 @@ export default function ExpenseFilters({ categories }: { categories: Category[] 
         </TextField>
       </Box>
 
+      <Button
+        onClick={() => setOpen((o) => !o)}
+        startIcon={<TuneOutlined />}
+        color="inherit"
+        aria-expanded={isDesktop || open}
+        sx={{ display: { xs: "inline-flex", md: "none" }, justifySelf: "start" }}
+      >
+        {open ? "Hide filters" : hiddenCount > 0 ? `Filters (${hiddenCount})` : "Filters"}
+      </Button>
+
+      <Collapse in={isDesktop || open} unmountOnExit>
       <Box
         sx={{
           display: "grid",
@@ -118,6 +135,7 @@ export default function ExpenseFilters({ categories }: { categories: Category[] 
           slotProps={amountSlotProps}
         />
       </Box>
+      </Collapse>
 
       {activeCount > 0 && (
         <Box>

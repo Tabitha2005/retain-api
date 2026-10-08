@@ -71,7 +71,7 @@ export default function Expenses() {
   }
 
   const addButton = (
-    <Button variant="contained" size="large" startIcon={<AddIcon />} onClick={openCreate}>
+    <Button variant="contained" size="large" startIcon={<AddIcon />} onClick={openCreate} sx={{ width: { xs: "100%", sm: "auto" } }}>
       Add expense
     </Button>
   );

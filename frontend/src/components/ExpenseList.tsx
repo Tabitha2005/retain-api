@@ -18,6 +18,7 @@ import { selectFilters, updateFilters } from "../store/filtersSlice";
 import type { Expense, SortField } from "../types";
 import { formatDate, formatMoney } from "../utils/format";
 import { PAYMENT_LABELS } from "../utils/labels";
+import ExpenseTitleLink from "./ExpenseTitleLink";
 
 interface Props {
   items: Expense[];
@@ -70,7 +71,7 @@ export default function ExpenseList({ items, onEdit, onDelete }: Props) {
             {items.map((e) => (
               <TableRow key={e._id} hover sx={{ "&:last-child td": { borderBottom: 0 } }}>
                 <TableCell sx={{ borderColor: "divider" }}>
-                  <Typography sx={{ fontWeight: 700 }}>{e.title}</Typography>
+                  <ExpenseTitleLink expense={e} />
                   {e.notes && (
                     <Typography variant="body2" color="text.secondary" noWrap sx={{ maxWidth: 280 }}>
                       {e.notes}
@@ -104,9 +105,7 @@ export default function ExpenseList({ items, onEdit, onDelete }: Props) {
           <Card key={e._id} sx={{ p: 2 }}>
             <Box sx={{ display: "flex", justifyContent: "space-between", gap: 2 }}>
               <Box sx={{ minWidth: 0 }}>
-                <Typography sx={{ fontWeight: 700 }} noWrap>
-                  {e.title}
-                </Typography>
+                <ExpenseTitleLink expense={e} />
                 <Typography variant="body2" color="text.secondary">
                   {formatDate(e.date)} · {PAYMENT_LABELS[e.paymentMethod]}
                 </Typography>
@@ -116,10 +115,10 @@ export default function ExpenseList({ items, onEdit, onDelete }: Props) {
             <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mt: 1.5 }}>
               <CategoryChip name={e.category.name} />
               <Box>
-                <IconButton aria-label={`Edit ${e.title}`} onClick={() => onEdit(e)} size="small">
+                <IconButton aria-label={`Edit ${e.title}`} onClick={() => onEdit(e)} size="medium">
                   <EditOutlined fontSize="small" />
                 </IconButton>
-                <IconButton aria-label={`Delete ${e.title}`} onClick={() => onDelete(e)} size="small" sx={{ "&:hover": { color: "error.main" } }}>
+                <IconButton aria-label={`Delete ${e.title}`} onClick={() => onDelete(e)} size="medium" sx={{ "&:hover": { color: "error.main" } }}>
                   <DeleteOutlined fontSize="small" />
                 </IconButton>
               </Box>
