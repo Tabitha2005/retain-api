@@ -45,7 +45,14 @@ export default function Dashboard() {
                   </Button>
                 }
               />
-              <Box sx={{ display: "grid", gap: 3, gridTemplateRows: "1fr 1fr" }}>
+              <Box
+                sx={{
+                  display: "grid",
+                  gap: 3,
+                  gridTemplateColumns: { xs: "minmax(0, 1fr)", sm: "repeat(2, minmax(0, 1fr))", md: "minmax(0, 1fr)" },
+                  gridTemplateRows: { md: "1fr 1fr" },
+                }}
+              >
                 <StatCard
                   label="Total spent"
                   value={formatMoney(data.totalSpent)}

@@ -30,10 +30,10 @@ export default function RecentExpenses({ items }: { items: Expense[] }) {
               }}
             >
               <Box sx={{ minWidth: 0 }}>
-                <Typography sx={{ fontWeight: 700 }} noWrap>
+                <Typography sx={{ fontWeight: 700, overflowWrap: "anywhere" }}>
                   {e.title}
                 </Typography>
-                <Typography variant="body2" color="text.secondary" noWrap>
+                <Typography variant="body2" color="text.secondary" sx={{ overflowWrap: "anywhere" }}>
                   {e.category.name} · {formatDate(e.date)}
                 </Typography>
               </Box>
