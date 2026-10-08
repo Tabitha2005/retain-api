@@ -35,3 +35,12 @@ export function shiftMonth(month: string, delta: number): string {
   const d = new Date(Date.UTC(year, m - 1 + delta, 1));
   return `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, "0")}`;
 }
+
+export function monthLabelShort(month: string): string {
+  const [year, m] = month.split("-").map(Number) as [number, number];
+  return new Date(Date.UTC(year, m - 1, 1)).toLocaleDateString("en-GB", {
+    month: "short",
+    year: "numeric",
+    timeZone: "UTC",
+  });
+}
