@@ -12,7 +12,7 @@ export default function Login() {
   const location = useLocation();
   const from = (location.state as { from?: string } | null)?.from ?? "/";
 
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState((location.state as { email?: string } | null)?.email ?? "");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
