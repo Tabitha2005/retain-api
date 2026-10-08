@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import "@fontsource-variable/manrope";
+import "@fontsource-variable/bricolage-grotesque";
 import "./index.css";
 import { theme } from "./theme";
 import { store } from "./store";
